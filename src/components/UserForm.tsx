@@ -70,6 +70,14 @@ export default function UserForm({mode,profileMode = false}: UserFormProps) {
         }
     }
 
+    const cancel = async () => {
+        if (profileMode) {
+            navigate('/main/profile');
+        } else {
+            navigate('/admin/users');
+        }
+    }
+
     return (
         <div className="size-full">
             <Spin spinning={loading}>
@@ -150,7 +158,7 @@ export default function UserForm({mode,profileMode = false}: UserFormProps) {
                                     <Button type="primary" htmlType="submit">
                                     保存
                                 </Button>
-                                <Button>
+                                <Button onClick={() => cancel()}>
                                     取消
                                 </Button>
                                 </Space>
